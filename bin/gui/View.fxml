@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="1280.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Cadastrar">
+            <items>
+              <MenuItem fx:id="menuItemClientes" mnemonicParsing="false" onAction="#onCadastrarClienteAction" text="Clientes" />
+                  <MenuItem fx:id="menuItemBarbeiros" mnemonicParsing="false" onAction="#onCadastrarBarbeirosAction" text="Barbeiros" />
+                  <MenuItem fx:id="menuItemServicos" mnemonicParsing="false" onAction="#onCadastrarServicosAction" text="Serviço" />
+                  <MenuItem fx:id="menuItemUsuarios" mnemonicParsing="false" onAction="#onCadastrarUsuariosAction" text="Usuáreios" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Buscar">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Cliente" />
+                  <MenuItem mnemonicParsing="false" text="Funcionário" />
+                  <MenuItem mnemonicParsing="false" text="Serviço" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Agendar">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Serviço" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
