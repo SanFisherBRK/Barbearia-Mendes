@@ -33,6 +33,9 @@ public class ViewController implements Initializable {
 
 	@FXML
 	private Button btn_CadastrarCliente;
+	
+	@FXML
+	private MenuItem menuItemBuscarClientes;
 
 	@FXML
 	private void onCadastrarClienteAction(ActionEvent event) {
@@ -79,6 +82,19 @@ public class ViewController implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("/gui/UsuarioView.fxml"));
 			Stage stage = new Stage();
 			stage.setTitle("Cadastro de Usuários");
+			stage.setScene(new Scene(root));
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void onBuscarTodosClientesAction(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/gui/ListarCliente.fxml"));
+			Stage stage = new Stage();
+			stage.setTitle("Buscar Clientes");
 			stage.setScene(new Scene(root));
 			stage.show();
 		} catch (Exception e) {

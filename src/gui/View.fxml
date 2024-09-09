@@ -13,13 +13,13 @@
             <items>
               <MenuItem fx:id="menuItemClientes" mnemonicParsing="false" onAction="#onCadastrarClienteAction" text="Clientes" />
                   <MenuItem fx:id="menuItemBarbeiros" mnemonicParsing="false" onAction="#onCadastrarBarbeirosAction" text="Barbeiros" />
-                  <MenuItem fx:id="menuItemServicos" mnemonicParsing="false" onAction="#onCadastrarServicosAction" text="Serviço" />
-                  <MenuItem fx:id="menuItemUsuarios" mnemonicParsing="false" onAction="#onCadastrarUsuariosAction" text="Usuáreios" />
+                  <MenuItem fx:id="menuItemServicos" mnemonicParsing="false" onAction="#onCadastrarServicosAction" text="Serviços" />
+                  <MenuItem fx:id="menuItemUsuarios" mnemonicParsing="false" onAction="#onCadastrarUsuariosAction" text="Usuários" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Buscar">
             <items>
-              <MenuItem mnemonicParsing="false" text="Cliente" />
+              <MenuItem fx:id="menuItemBuscarClientes" mnemonicParsing="false" onAction="#onBuscarTodosClientesAction" text="Cliente" />
                   <MenuItem mnemonicParsing="false" text="Funcionário" />
                   <MenuItem mnemonicParsing="false" text="Serviço" />
             </items>
