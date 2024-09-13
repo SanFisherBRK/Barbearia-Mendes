@@ -1,6 +1,7 @@
 package Entities;
 
 public class Barbeiros {
+	private Integer idbarbeiro;
 	private String nome;
 	private String email;
 	private String telefone;
@@ -11,6 +12,14 @@ public class Barbeiros {
 		
 	}
 	
+	public Integer getIdbarbeiro() {
+		return idbarbeiro;
+	}
+
+	public void setIdbarbeiro(Integer idbarbeiro) {
+		this.idbarbeiro = idbarbeiro;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -43,5 +52,8 @@ public class Barbeiros {
 	}
 	
 	
-
+	@Override
+    public String toString() {
+        return nome; // Isso garante que o nome do cliente seja exibido na ComboBox
+    }
 }

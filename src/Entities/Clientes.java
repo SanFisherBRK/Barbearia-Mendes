@@ -60,6 +60,9 @@ public class Clientes {
 		this.cpf = cpf;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return nome; // Isso garante que o nome do cliente seja exibido na ComboBox
+    }
 
 }

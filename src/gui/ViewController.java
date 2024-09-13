@@ -18,6 +18,9 @@ public class ViewController implements Initializable {
 
 	@FXML
 	private Label label;
+	
+	@FXML
+    private MenuItem menuItemAgendarServico;
 
 	@FXML
 	private MenuItem menuItemClientes;
@@ -95,6 +98,19 @@ public class ViewController implements Initializable {
 			Parent root = FXMLLoader.load(getClass().getResource("/gui/ListarCliente.fxml"));
 			Stage stage = new Stage();
 			stage.setTitle("Buscar Clientes");
+			stage.setScene(new Scene(root));
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void onAgendarServicoAction(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/gui/AgendaView.fxml"));
+			Stage stage = new Stage();
+			stage.setTitle("Agendar Serviço");
 			stage.setScene(new Scene(root));
 			stage.show();
 		} catch (Exception e) {

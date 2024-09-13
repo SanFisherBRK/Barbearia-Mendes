@@ -65,13 +65,7 @@ public class ListarClienteController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //tbc_ID.setCellValueFactory(new PropertyValueFactory<>("id"));
-       // tbc_Nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        //tbc_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        //tbc_Telefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
-        //tbc_Endereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-        //tbc_CPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-
+        
         tbv_Cliente.setItems(FXCollections.observableArrayList(buscaTodos()));
     }
 

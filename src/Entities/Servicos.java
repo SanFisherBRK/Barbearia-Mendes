@@ -1,7 +1,7 @@
 package Entities;
 
 public class Servicos {
-	private Integer id;
+	private Integer idservico;
 	private String nome;
 	private String descricao;
 	private Double preco;
@@ -10,6 +10,17 @@ public class Servicos {
 		
 	}
 	
+	
+	public Integer getIdservico() {
+		return idservico;
+	}
+
+
+	public void setIdservico(Integer idservico) {
+		this.idservico = idservico;
+	}
+
+
 	public String getNome() {
 		return nome;
 	}
@@ -34,6 +45,9 @@ public class Servicos {
 		this.descricao = descricao;
 	}
 	
-	
+	@Override
+    public String toString() {
+        return nome; // Isso garante que o nome do cliente seja exibido na ComboBox
+    }
 	
 }

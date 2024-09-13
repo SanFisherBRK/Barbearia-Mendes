@@ -1,30 +1,34 @@
 package Entities;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class Agendamento {
+public class Agendamento implements Serializable{
 	
-	private Integer idAgenda;
+	private Integer idagendamento;
     private Timestamp dataHora;
     private Integer idcliente;
     private Integer idservico;
     private Integer idbarbeiro;
     
-	public Agendamento(Integer idAgenda, Timestamp dataHora, Integer idcliente, Integer idservico, Integer idbarbeiro) {
-		super();
-		this.idAgenda = idAgenda;
+    public Agendamento() {
+    	
+    }
+    
+	public Agendamento(Integer idagendamento, Timestamp dataHora, Integer idcliente, Integer idservico, Integer idbarbeiro) {
+		this.idagendamento = idagendamento;
 		this.dataHora = dataHora;
 		this.idcliente = idcliente;
 		this.idservico = idservico;
 		this.idbarbeiro = idbarbeiro;
 	}
 
-	public Integer getIdAgenda() {
-		return idAgenda;
+	public Integer getIdagendamento() {
+		return idagendamento;
 	}
 
-	public void setIdAgenda(Integer idAgenda) {
-		this.idAgenda = idAgenda;
+	public void setIdagendamento(Integer idagendamento) {
+		this.idagendamento = idagendamento;
 	}
 
 	public Timestamp getDataHora() {
