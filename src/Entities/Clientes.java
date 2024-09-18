@@ -1,7 +1,7 @@
 package Entities;
 
 public class Clientes {
-	private Integer id;
+	private Integer cliente_id;
 	private String nome;
 	private String email;
 	private String telefone;
@@ -12,12 +12,12 @@ public class Clientes {
 		
 	}
 	
-	public Integer getId() {
-		return id;
+	public Integer getCliente_id() {
+		return cliente_id;
 	}
 	
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCliente_id(Integer cliente_id) {
+		this.cliente_id = cliente_id;
 	}
 
 	public String getNome() {

@@ -14,8 +14,9 @@ public class Agendamento implements Serializable{
     public Agendamento() {
     	
     }
-    
-	public Agendamento(Integer idagendamento, Timestamp dataHora, Integer idcliente, Integer idservico, Integer idbarbeiro) {
+
+	public Agendamento(Integer idagendamento, Timestamp dataHora, Integer idcliente, Integer idservico,Integer idbarbeiro) {
+		
 		this.idagendamento = idagendamento;
 		this.dataHora = dataHora;
 		this.idcliente = idcliente;
@@ -62,7 +63,5 @@ public class Agendamento implements Serializable{
 	public void setIdbarbeiro(Integer idbarbeiro) {
 		this.idbarbeiro = idbarbeiro;
 	}
-
-    
-
+	
 }

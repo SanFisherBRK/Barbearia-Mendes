@@ -73,7 +73,7 @@ public class ListarClienteController implements Initializable {
     @FXML
     public List<Clientes> buscaTodos() {
     	
-    	tbc_ID.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	tbc_ID.setCellValueFactory(new PropertyValueFactory<>("cliente_id"));
         tbc_Nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tbc_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
         tbc_Telefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
@@ -90,7 +90,7 @@ public class ListarClienteController implements Initializable {
 
             while (rs.next()) {
                 Clientes cliente = new Clientes();
-                cliente.setId(rs.getInt("idcliente"));
+                cliente.setCliente_id(rs.getInt("idcliente"));
                 cliente.setNome(rs.getString("nome"));
                 cliente.setEmail(rs.getString("email"));
                 cliente.setTelefone(rs.getString("telefone"));
