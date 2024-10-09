@@ -76,11 +76,6 @@ public class AgendaViewController implements Initializable {
         cbb_servico.setItems(obterNomesServicos());
         
     }
-    
-    
-
-	
-
 
 
 	@FXML
@@ -128,6 +123,7 @@ public class AgendaViewController implements Initializable {
                     enviaParaOBanco.executeUpdate();
 
                     Alerts.showAlert("Cadastrar Cliente", "Cadastro realizado com sucesso", "ok", AlertType.INFORMATION);
+                    buscaTodos();
                 }
             }
 
@@ -136,6 +132,7 @@ public class AgendaViewController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
     }
     
 
