@@ -20,6 +20,7 @@
           <Menu mnemonicParsing="false" text="Buscar">
             <items>
               <MenuItem fx:id="menuItemBuscarClientes" mnemonicParsing="false" onAction="#onBuscarTodosClientesAction" text="Cliente" />
+                  <MenuItem fx:id="menuItemBuscarBarbeiro" mnemonicParsing="false" onAction="#onBuscarTodosBarbeirosAction" text="Barbeiro" />
                   <MenuItem mnemonicParsing="false" text="Funcionário" />
                   <MenuItem mnemonicParsing="false" text="Serviço" />
             </items>
@@ -36,5 +37,6 @@
           </Menu>
         </menus>
       </MenuBar>
+      
    </children>
 </AnchorPane>

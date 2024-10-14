@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import BD.Conexao;
-import Entities.Clientes;
+import Entities.Barbeiros;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,11 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
-public class ListarClienteController implements Initializable {
-	
+public class ListarBarbeiroController implements Initializable {
 
     @FXML
-    private BorderPane bdp_Cliente;
+    private BorderPane bdp_bareiro;
 
     @FXML
     private Button btn_Atualizar;
@@ -37,75 +36,65 @@ public class ListarClienteController implements Initializable {
     private Button btn_Deletar;
 
     @FXML
-    private TableColumn<Clientes, String> tbc_CPF;
+    private TableColumn<Barbeiros, String> tbc_CPF;
 
     @FXML
-    private TableColumn<Clientes, String> tbc_Email;
+    private TableColumn<Barbeiros, String> tbc_Email;
 
     @FXML
-    private TableColumn<Clientes, String> tbc_Endereco;
+    private TableColumn<Barbeiros, String> tbc_Endereco;
 
     @FXML
-    private TableColumn<Clientes, Integer> tbc_ID;
+    private TableColumn<Barbeiros, Integer> tbc_ID;
 
     @FXML
-    private TableColumn<Clientes, String> tbc_Nome;
+    private TableColumn<Barbeiros, String> tbc_Nome;
 
     @FXML
-    private TableColumn<Clientes, String> tbc_Telefone;
+    private TableColumn<Barbeiros, String> tbc_Telefone;
 
     @FXML
-    private TableView<Clientes> tbv_Cliente;
+    private TableView<Barbeiros> tbv_barbeiro;
 
     @FXML
-    private TextField txt_Bucar;
-    
-    
-    
+    private TextField txf_Buscar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-        tbv_Cliente.setItems(FXCollections.observableArrayList(buscaTodos()));
+        configureTableColumns();
+        tbv_barbeiro.setItems(FXCollections.observableArrayList(buscaTodos()));
     }
 
-    
-    @FXML
-    public List<Clientes> buscaTodos() {
-    	
-    	tbc_ID.setCellValueFactory(new PropertyValueFactory<>("cliente_id"));
+    private void configureTableColumns() {
+        tbc_ID.setCellValueFactory(new PropertyValueFactory<>("idbarbeiro"));
         tbc_Nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tbc_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
         tbc_Telefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         tbc_Endereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
         tbc_CPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
-    	
-    	
-        List<Clientes> clientes = new ArrayList<>();
-        String sql = "SELECT * FROM cliente";
+    }
 
+    @FXML
+    public List<Barbeiros> buscaTodos() {
+        List<Barbeiros> barbeiros = new ArrayList<>();
+        String sql = "SELECT * FROM barbeiro";
         try (Connection conn = new Conexao().getConnection();
              PreparedStatement buscar = conn.prepareStatement(sql);
              ResultSet rs = buscar.executeQuery()) {
 
             while (rs.next()) {
-                Clientes cliente = new Clientes();
-                cliente.setCliente_id(rs.getInt("idcliente"));
-                cliente.setNome(rs.getString("nome"));
-                cliente.setEmail(rs.getString("email"));
-                cliente.setTelefone(rs.getString("telefone"));
-                cliente.setEndereco(rs.getString("endereco"));
-                cliente.setCpf(rs.getString("cpf"));
-                clientes.add(cliente);
+                Barbeiros barbeiro = new Barbeiros();
+                barbeiro.setIdbarbeiro(rs.getInt("idbarbeiro"));
+                barbeiro.setNome(rs.getString("nome"));
+                barbeiro.setEmail(rs.getString("email"));
+                barbeiro.setTelefone(rs.getString("telefone"));
+                barbeiro.setEndereco(rs.getString("endereco"));
+                barbeiro.setCpf(rs.getString("cpf"));
+                barbeiros.add(barbeiro);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return clientes;
+        return barbeiros;
     }
 }
-
-				
-	

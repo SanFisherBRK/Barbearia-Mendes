@@ -106,6 +106,19 @@ public class ViewController implements Initializable {
 	}
 	
 	@FXML
+	private void onBuscarTodosBarbeirosAction(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/gui/ListarBarbeiro.fxml"));
+			Stage stage = new Stage();
+			stage.setTitle("Buscar Clientes");
+			stage.setScene(new Scene(root));
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
 	private void onAgendarServicoAction(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/gui/AgendaView.fxml"));
