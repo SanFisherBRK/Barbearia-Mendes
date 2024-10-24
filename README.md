@@ -1,4 +1,4 @@
-# BarbeariaCarlos 
+# BarbeariaMendes 
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/devsuperior/sds1-wmazoni/blob/master/LICENSE) 
 
 # Sobre o projeto
@@ -42,70 +42,21 @@ A aplicação consiste em um software desktop feito para uma barbearia que serve
 Pré-requisitos: Java 17
 
 #Crie as tabelas do banco de dados.
-
-create table usuario(
-	idusuario INT auto_increment primary Key unique not null,
-    nome varchar(255) not null,
-	email varchar(255) not null,
-	login varchar(45) not null,
-	senha varchar(255) not null
-);
-
-create table cliente(
-	idcliente INT auto_increment primary Key unique not null,
-    nome varchar(255) not null,
-	email varchar(255) not null,
-	telefone varchar(45) not null,
-	endereco varchar(255) not null,
-	cpf varchar(11) not null unique,
-	usuario_id int,
-	foreign key (usuario_id) references usuario(idusuario)
-);
-
-create table barbeiro(
-	idbarbeiro INT auto_increment primary Key unique not null,
-    nome varchar(255) not null,
-	email varchar(255) not null,
-	telefone varchar(45) not null,
-	endereco varchar(255) not null,
-	cpf varchar(11) not null unique,
-	usuario_id int,
-	foreign key (usuario_id) references usuario(idusuario)
-);
-
-create table servico(
-	idservico INT auto_increment primary Key unique not null,
-    nome varchar(255) not null,
-	descricao varchar(255) not null,
-	preco DECIMAL(10,2) NOT NULL,
-	usuario_id int,
-	foreign key (usuario_id) references usuario(idusuario)
-);
-
-create table agendamento(
-	idagendamento INT auto_increment primary Key unique not null,
-    datahora TIMESTAMP,
-	cliente_id int,
-	servico_id int,
-	barbeiro_id int,
-	foreign key (cliente_id) references cliente(idcliente),
-    foreign key (servico_id) references servico(idservico),
-    foreign key (barbeiro_id) references barbeiro(idbarbeiro)
-);
+- Crie as tabelas no banco de dados conforme o diagrama de classes.
 
 ```bash
 # clonar repositório
-git clone git@github.com:SanFisherBRK/Barbearia-Mendes.git
+# git clone git@github.com:SanFisherBRK/Barbearia-Mendes.git
 
 # Importar o projeto no eclipse
 
 # criar uma pasta java-libs em c:
-Baixar o conector mysql-connector-j-9.0.0.jar e colocar dentro da pasta java-libs.
-Baixar o javafx-sdk-22.0.2 e colocar dentro da pasta java-libs.
-Configurar o javafx-sdk-22.0.2 e mysql-connector-j-9.0.0.jar no seu projeto dentro do eclipse.
+# Baixar o conector mysql-connector-j-9.0.0.jar e colocar dentro da pasta java-libs.
+# Baixar o javafx-sdk-22.0.2 e colocar dentro da pasta java-libs.
+# Configurar o javafx-sdk-22.0.2 e mysql-connector-j-9.0.0.jar no seu projeto dentro do eclipse.
 
 # Como executar o projeto
-Clicar em Run Main para executar o projetos.
+#Clicar em Run Main para executar o projetos.
 ```
 
 # Autor
