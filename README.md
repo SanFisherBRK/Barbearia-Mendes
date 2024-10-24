@@ -17,14 +17,14 @@ A aplicação consiste em um software desktop feito para uma barbearia que serve
 ## Layout web
 
 <p align="center">
-    <img width="800" height="600" src="https://github.com/SanFisherBRK/Dashboard-feita-em-React-para-a-Api-vendinha/blob/main/src/ImagensGitHub/Layout2.gif"
+    <img width="800" height="600" src="https://github.com/SanFisherBRK/Barbearia-Mendes/blob/main/src/ImagemGitHub/Layout%20Barbearia.gif"
 </p>
 
 
 ## Diagrama de classes
 
 <p align="center">
-    <img width="800" height="600" src="https://github.com/SanFisherBRK/Dashboard-feita-em-React-para-a-Api-vendinha/blob/main/src/ImagensGitHub/Layout2.gif"
+    <img width="800" height="600" src="https://github.com/SanFisherBRK/Barbearia-Mendes/blob/main/src/ImagemGitHub/Diagrama%20de%20classes%202.png"
 </p>
 
 # Tecnologias utilizadas
