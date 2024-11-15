@@ -13,7 +13,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			Parent parent = FXMLLoader.load(getClass().getResource("/gui/LoginView.fxml"));
+			Parent parent = FXMLLoader.load(getClass().getResource("/gui/View.fxml"));
 			Scene scene = new Scene(parent);
 			stage.setTitle("Barbearia Mendes");
 			stage.setScene(scene);

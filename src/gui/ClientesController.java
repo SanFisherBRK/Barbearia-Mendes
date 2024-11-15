@@ -110,7 +110,9 @@ public class ClientesController {
 	@FXML
 	public void limparCampos() {
 		txt_nome.clear();
-		//txt_Preco.
+		txt_email.clear();
+		txt_telefone.clear();
+		txt_endereco.clear();
+		txt_cpf.clear();
 	}
-
 }
