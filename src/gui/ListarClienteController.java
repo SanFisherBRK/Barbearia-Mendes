@@ -66,7 +66,7 @@ public class ListarClienteController implements Initializable {
         tbv_Cliente.setRowFactory(tv -> {
             TableRow<Clientes> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (!row.isEmpty()) {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
                     clienteSelecionado = row.getItem();
                     abrirJanelaUpdateCliente(clienteSelecionado);
                 }
