@@ -31,32 +31,31 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ListarClienteController implements Initializable {
-	@FXML
+    @FXML
     private BorderPane bdp_Cliente;
-	@FXML
+    @FXML
     private Button btn_Atualizar;
-	@FXML
+    @FXML
     private Button btn_Buscar;
-	@FXML
+    @FXML
     private Button btn_Deletar;
-	@FXML
+    @FXML
     private TableColumn<Clientes, String> tbc_CPF;
-	@FXML
+    @FXML
     private TableColumn<Clientes, String> tbc_Email;
-	@FXML
+    @FXML
     private TableColumn<Clientes, String> tbc_Endereco;
-	@FXML
+    @FXML
     private TableColumn<Clientes, Integer> tbc_ID;
-	@FXML
+    @FXML
     private TableColumn<Clientes, String> tbc_Nome;
-	@FXML
+    @FXML
     private TableColumn<Clientes, String> tbc_Telefone;
-	@FXML
+    @FXML
     private TableView<Clientes> tbv_Cliente;
-	@FXML
+    @FXML
     private TextField txt_Bucar;
-	
-	@FXML
+    
     private Clientes clienteSelecionado;
 
     @Override
@@ -66,15 +65,19 @@ public class ListarClienteController implements Initializable {
         tbv_Cliente.setRowFactory(tv -> {
             TableRow<Clientes> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                if (!row.isEmpty()) {
                     clienteSelecionado = row.getItem();
-                    abrirJanelaUpdateCliente(clienteSelecionado);
+                    if (event.getClickCount() == 2) {
+                        abrirJanelaUpdateCliente(clienteSelecionado);
+                    }
                 }
             });
             return row;
         });
 
         btn_Atualizar.setOnAction(event -> {
+            // Atualiza o clienteSelecionado com a linha atualmente selecionada na tabela
+            clienteSelecionado = tbv_Cliente.getSelectionModel().getSelectedItem();
             if (clienteSelecionado != null) {
                 abrirJanelaUpdateCliente(clienteSelecionado);
             } else {
@@ -146,4 +149,3 @@ public class ListarClienteController implements Initializable {
         return clientes;
     }
 }
-
