@@ -53,18 +53,18 @@ public class ListarServicoController implements Initializable {
     private TextField txt_Bucar;
     
     private Servicos servicoSelecionado;
-
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-    	tbv_Servicos.setItems(FXCollections.observableArrayList(buscaTodos()));
-
-    	tbv_Servicos.setRowFactory(tv -> {
+        tbv_Servicos.setItems(FXCollections.observableArrayList(buscaTodos()));
+        
+        tbv_Servicos.setRowFactory(tv -> {
             TableRow<Servicos> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
-                	servicoSelecionado = row.getItem();
+                    servicoSelecionado = row.getItem();
                     if (event.getClickCount() == 2) {
-                    	abrirJanelaUpdateServico(servicoSelecionado);
+                        abrirJanelaUpdateServico(servicoSelecionado);
                     }
                 }
             });
@@ -72,16 +72,17 @@ public class ListarServicoController implements Initializable {
         });
 
         btn_Atualizar.setOnAction(event -> {
-            // Atualiza o clienteSelecionado com a linha atualmente selecionada na tabela
-        	servicoSelecionado = tbv_Servicos.getSelectionModel().getSelectedItem();
+            servicoSelecionado = tbv_Servicos.getSelectionModel().getSelectedItem();
             if (servicoSelecionado != null) {
-            	abrirJanelaUpdateServico(servicoSelecionado);
+                abrirJanelaUpdateServico(servicoSelecionado);
             } else {
                 Alerts.showAlert("Atualizar Serviço", "Nenhum serviço selecionado", "Selecione um serviço para atualizar", AlertType.WARNING);
             }
         });
     }
-
+    
+//==========================================================================================================================================================
+    
     @FXML
     public void abrirJanelaUpdateServico(Servicos servico) {
         try {
@@ -96,7 +97,6 @@ public class ListarServicoController implements Initializable {
             stage.setTitle("Atualizar Serviço");
             stage.setScene(new Scene(root));
 
-            // Adicione um listener para quando a janela for fechada
             stage.setOnHiding(event -> recarregarTabela());
 
             stage.showAndWait();
@@ -104,12 +104,58 @@ public class ListarServicoController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+//==========================================================================================================================================================    
 
-    // Método para recarregar a tabela após atualização
     @FXML
     private void recarregarTabela() {
         tbv_Servicos.setItems(FXCollections.observableArrayList(buscaTodos()));
     }
+    
+//==========================================================================================================================================================    
+    
+    @FXML
+    public void buscaNome() {
+        String nome = txt_Bucar.getText();
+        tbv_Servicos.setItems(FXCollections.observableArrayList(buscaPorNome(nome)));
+    }
+    
+//==========================================================================================================================================================    
+
+    @FXML
+    public List<Servicos> buscaPorNome(String nome) {
+        tbc_ID.setCellValueFactory(new PropertyValueFactory<>("idservico"));
+        tbc_Nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tbc_Descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        tbc_Preco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+
+        List<Servicos> servicos = new ArrayList<>();
+        String sql = "SELECT * FROM servico WHERE nome LIKE ?";
+
+        try (Connection conn = new Conexao().getConnection();
+             PreparedStatement buscar = conn.prepareStatement(sql)) {
+
+            buscar.setString(1, "%" + nome + "%");
+
+            try (ResultSet rs = buscar.executeQuery()) {
+                while (rs.next()) {
+                    Servicos servico = new Servicos();
+                    servico.setIdservico(rs.getInt("idservico"));
+                    servico.setNome(rs.getString("nome"));
+                    servico.setDescricao(rs.getString("descricao"));
+                    servico.setPreco(rs.getDouble("preco"));
+                    servicos.add(servico);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return servicos;
+    }
+    
+//==========================================================================================================================================================    
 
     @FXML
     public List<Servicos> buscaTodos() {
@@ -131,7 +177,7 @@ public class ListarServicoController implements Initializable {
                 servico.setNome(rs.getString("nome"));
                 servico.setDescricao(rs.getString("descricao"));
                 servico.setPreco(rs.getDouble("preco"));
-                
+
                 servicos.add(servico);
             }
 
@@ -141,4 +187,6 @@ public class ListarServicoController implements Initializable {
 
         return servicos;
     }
+    
+//==========================================================================================================================================================    
 }
