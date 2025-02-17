@@ -40,12 +40,12 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <TextField fx:id="txf_Bucar" layoutX="564.0" layoutY="9.0" promptText="Buscar">
+            <TextField fx:id="txt_Bucar" layoutX="564.0" layoutY="9.0" onAction="#buscarNomeCliente" promptText="Buscar">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <Button fx:id="btn_Buscar" layoutX="774.0" layoutY="3.0" mnemonicParsing="false" onAction="#buscaTodos" text="Buscar">
+            <Button fx:id="btn_Buscar" layoutX="774.0" layoutY="3.0" mnemonicParsing="false" onAction="#buscarNomeCliente" text="Buscar">
                <font>
                   <Font size="20.0" />
                </font>

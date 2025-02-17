@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 
 import BD.Conexao;
 import Entities.Clientes;
+import Entities.Servicos;
 import gui.util.Alerts;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -57,7 +58,8 @@ public class ListarClienteController implements Initializable {
     private TextField txt_Bucar;
     
     private Clientes clienteSelecionado;
-
+//=======================================================================================================================================================
+   
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tbv_Cliente.setItems(FXCollections.observableArrayList(buscaTodos()));
@@ -84,8 +86,10 @@ public class ListarClienteController implements Initializable {
                 Alerts.showAlert("Atualizar Cliente", "Nenhum cliente selecionado", "Selecione um cliente para atualizar", AlertType.WARNING);
             }
         });
+    
     }
-
+//=======================================================================================================================================================
+    
     @FXML
     public void abrirJanelaUpdateCliente(Clientes cliente) {
         try {
@@ -109,11 +113,65 @@ public class ListarClienteController implements Initializable {
         }
     }
 
+//=======================================================================================================================================================
+    
     // Método para recarregar a tabela após atualização
     @FXML
     private void recarregarTabela() {
         tbv_Cliente.setItems(FXCollections.observableArrayList(buscaTodos()));
     }
+    
+   
+//=======================================================================================================================================================    
+   
+    @FXML
+    public void buscarNomeCliente() {
+        String nome = txt_Bucar.getText();
+        tbv_Cliente.setItems(FXCollections.observableArrayList(buscaClientePorNome(nome)));
+    }
+    
+//=======================================================================================================================================================    
+    
+    @FXML
+    public List<Clientes> buscaClientePorNome(String nome) {
+    	
+        tbc_ID.setCellValueFactory(new PropertyValueFactory<>("cliente_id"));
+        tbc_Nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tbc_Email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tbc_Telefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+        tbc_Endereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
+        tbc_CPF.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        
+
+        List<Clientes> clientes = new ArrayList<>();
+        String sql = "SELECT * FROM cliente WHERE nome LIKE ?";
+
+        try (Connection conn = new Conexao().getConnection();
+             PreparedStatement buscar = conn.prepareStatement(sql)) {
+
+            buscar.setString(1, "%" + nome + "%");
+
+            try (ResultSet rs = buscar.executeQuery()) {
+                while (rs.next()) {
+                	Clientes cliente = new Clientes();
+                	cliente.setCliente_id(rs.getInt("idcliente"));
+                	cliente.setNome(rs.getString("nome"));
+                	cliente.setEmail(rs.getString("email"));
+                	cliente.setTelefone(rs.getString("telefone"));
+                	cliente.setEndereco(rs.getString("endereco"));
+                	cliente.setCpf(rs.getString("cpf"));
+                	clientes.add(cliente);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return clientes;
+    }
+    
+  //=======================================================================================================================================================    
 
     @FXML
     public List<Clientes> buscaTodos() {
