@@ -63,13 +63,13 @@ public class ListarUsuariosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     	tbv_Usuarios.setItems(FXCollections.observableArrayList(buscaTodos()));
 
-    /*	tbv_Usuarios.setRowFactory(tv -> {
+    	tbv_Usuarios.setRowFactory(tv -> {
             TableRow<Usuarios> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (!row.isEmpty()) {
                 	usuarioSelecionado = row.getItem();
                     if (event.getClickCount() == 2) {
-                        abrirJanelaUpdateUsuarios(usuarioSelecionado);
+                    	abrirJanelaUpdateUsuarios(usuarioSelecionado);
                     }
                 }
             });
@@ -77,26 +77,26 @@ public class ListarUsuariosController implements Initializable {
         });
 
         btn_Atualizar.setOnAction(event -> {
-            // Atualiza o clienteSelecionado com a linha atualmente selecionada na tabela
+            // Atualiza o usuário Selecionado com a linha atualmente selecionada na tabela
         	usuarioSelecionado = tbv_Usuarios.getSelectionModel().getSelectedItem();
             if (usuarioSelecionado != null) {
-                abrirJanelaUpdateUsuarios(usuarioSelecionado);
+            	abrirJanelaUpdateUsuarios(usuarioSelecionado);
             } else {
                 Alerts.showAlert("Atualizar usuário", "Nenhum usuário selecionado", "Selecione um usuário para atualizar", AlertType.WARNING);
             }
         });
-    */
+    
     }
 //=======================================================================================================================================================
     
-   /* @FXML
+    @FXML
     public void abrirJanelaUpdateUsuarios(Usuarios usuarios) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateCliente.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UsuarioUpdate.fxml"));
             Parent root = loader.load();
 
-            //UpdateCliente controller = loader.getController();
-            //controller.preencherDadosUsuarios(usuarios);
+            UpdateUsuarioController controller = loader.getController();
+            controller.preencherDadosUsuarios(usuarios);
 
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -110,7 +110,7 @@ public class ListarUsuariosController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    } */
+    } 
 
 //=======================================================================================================================================================
     
