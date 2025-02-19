@@ -21,7 +21,7 @@
             <items>
               <MenuItem fx:id="menuItemBuscarClientes" mnemonicParsing="false" onAction="#onBuscarTodosClientesAction" text="Cliente" />
                   <MenuItem fx:id="menuItemBuscarBarbeiro" mnemonicParsing="false" onAction="#onBuscarTodosBarbeirosAction" text="Barbeiro" />
-                  <MenuItem mnemonicParsing="false" text="Funcionário" />
+                  <MenuItem mnemonicParsing="false" onAction="#onBuscarTodosFuncionariosAction" text="Funcionário" />
                   <MenuItem fx:id="menuItemBuscarServicos" mnemonicParsing="false" onAction="#onBuscarTodosServicosAction" text="Serviço" />
             </items>
           </Menu>

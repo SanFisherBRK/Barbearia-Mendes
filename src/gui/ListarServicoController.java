@@ -79,6 +79,7 @@ public class ListarServicoController implements Initializable {
                 Alerts.showAlert("Atualizar Serviço", "Nenhum serviço selecionado", "Selecione um serviço para atualizar", AlertType.WARNING);
             }
         });
+          
     }
     
 //==========================================================================================================================================================

@@ -119,6 +119,19 @@ public class ViewController implements Initializable {
 	}
 	
 	@FXML
+	private void onBuscarTodosFuncionariosAction(ActionEvent event) {
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/gui/ListarUsuarios.fxml"));
+			Stage stage = new Stage();
+			stage.setTitle("Buscar Funcionarios");
+			stage.setScene(new Scene(root));
+			stage.show();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
 	private void onBuscarTodosServicosAction(ActionEvent event) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/gui/ListarServicos.fxml"));
