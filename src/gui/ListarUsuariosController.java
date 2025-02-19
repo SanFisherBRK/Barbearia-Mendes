@@ -123,14 +123,14 @@ public class ListarUsuariosController implements Initializable {
    
 //=======================================================================================================================================================    
    
-  /*  @FXML
+    @FXML
     public void buscarNomeUsuario() {
         String nome = txt_Bucar.getText();
         tbv_Usuarios.setItems(FXCollections.observableArrayList(buscaUsuarioPorNome(nome)));
     }
-    */
+    
 //=======================================================================================================================================================    
-    /*
+    
     @FXML
     public List<Usuarios> buscaUsuarioPorNome(String nome) {
     	
@@ -142,7 +142,7 @@ public class ListarUsuariosController implements Initializable {
         
 
         List<Usuarios> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usurio WHERE nome LIKE ?";
+        String sql = "SELECT * FROM usuario WHERE nome LIKE ?";
 
         try (Connection conn = new Conexao().getConnection();
              PreparedStatement buscar = conn.prepareStatement(sql)) {
@@ -153,7 +153,7 @@ public class ListarUsuariosController implements Initializable {
                 while (rs.next()) {
                 	
                 	Usuarios usuario = new Usuarios();
-                    usuario.setId(rs.getInt("id"));
+                    usuario.setId(rs.getInt("idusuario"));
                     usuario.setNome(rs.getString("nome"));
                     usuario.setEmail(rs.getString("email"));
                     usuario.setLogin(rs.getString("login"));
@@ -169,7 +169,7 @@ public class ListarUsuariosController implements Initializable {
 
         return usuarios;
     }
-    */
+    
   //=======================================================================================================================================================    
 
     @FXML
