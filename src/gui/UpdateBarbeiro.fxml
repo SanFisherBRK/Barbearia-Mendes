@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BarbeiroViewController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UpdateBarbeiroController">
    <children>
-      <Label layoutX="183.0" layoutY="43.0" text="Cadastro de Barbeiros">
+      <Label layoutX="183.0" layoutY="43.0" text="Atualizar Barbeiro">
          <font>
             <Font size="24.0" />
          </font>
@@ -63,7 +63,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="btn_Cadastrar" layoutX="125.0" layoutY="449.0" mnemonicParsing="false" onAction="#cadastrarBarbeiros" prefHeight="39.0" prefWidth="116.0" text="Cadastrar" />
+      <Button fx:id="btn_Salvar" layoutX="125.0" layoutY="449.0" mnemonicParsing="false" onAction="#updateBarbeiros" prefHeight="39.0" prefWidth="116.0" text="Salvar" />
       <Button fx:id="btn_limparCampos" layoutX="384.0" layoutY="449.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="39.0" prefWidth="116.0" text="Limpar" />
    </children>
 </AnchorPane>
