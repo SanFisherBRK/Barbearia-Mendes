@@ -9,7 +9,7 @@ A aplicação consiste em um software desktop feito para uma barbearia que serve
 
 
 ## Requisitos do projeto
-- Java 17
+- Java 22.0.2
 - JavaFX
 - MySql
 - Eclipse
@@ -39,7 +39,7 @@ A aplicação consiste em um software desktop feito para uma barbearia que serve
 
 
 ## Front end
-Pré-requisitos: Java 17
+Pré-requisitos: Java 22.0.2
 
 #Crie as tabelas do banco de dados.
 - Crie as tabelas no banco de dados conforme o diagrama de classes.
@@ -73,7 +73,4 @@ Felipe Aparecido Dias.
 
 https://github.com/felipeaparecidodias
 
-Elisa Sobrinho.
-
-https://github.com/EcosElisa
 
